@@ -57,6 +57,8 @@ __global__ void linear_bfs(const int n, const int* row_offset, const int*const c
 			{
 				distance[j]=iteration+1;
 				// Enqueue vertex.
+				// 这里肯定不对，因为一个edge frontier可能被多个vertex frontier同时expand出来
+				// 
 				const int ind = atomicAdd(out_queue_count,1);
 				assert(ind < n);
 				out_queue[ind]=j;
