@@ -42,7 +42,7 @@ __global__ void init_bitmask(const int count, cudaSurfaceObject_t bitmask_surf, 
 	if(id < count)
 	{
 		const unsigned int mask = 0;
-		surf1Dwrite(mask, bitmask_surf, id*4);
+		surf1Dwrite(mask, bitmask_surf, id*4); // 这一句话是啥意思？
 	} 
 	// Set bit corresponding to source_vertexing vertex to 1.
 	if(id == (source_vertex / (8 * sizeof(unsigned int))))
